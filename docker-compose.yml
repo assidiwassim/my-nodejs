@@ -1,17 +1,27 @@
 version: '3.9'
-
+name: "nodejs-stack"
 services:
 
   my-nodejs-service:
-    build: .
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
     container_name: my-nodejs-container
     ports:
       - "3025:3000"
+    volumes:
+      - ./:/my-workspace
 
   my-mongodb-service: 
     image: mongo
     container_name: my-mongodb-container
     ports:
       - "27018:27017"
+    volumes:
+      - my-mongodb-volume:/data/db
+
+volumes:
+  my-mongodb-volume:
+
 
     
