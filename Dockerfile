@@ -2,11 +2,11 @@ FROM --platform=arm64 node:18
 
 WORKDIR /my-workspace 
 
-COPY package*.json .
+COPY package*.json ./
 
 RUN npm install
 
-COPY . .
+COPY ./ ./
 
 EXPOSE 3000
 
