@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+
+  my-nodejs-service:
+    build: .
+    container_name: my-nodejs-container
+    ports:
+      - "3025:3000"
+
+  my-mongodb-service: 
+    image: mongo
+    container_name: my-mongodb-container
+    ports:
+      - "27018:27017"
+
+    
